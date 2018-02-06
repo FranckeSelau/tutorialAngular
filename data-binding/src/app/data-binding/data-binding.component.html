@@ -1,0 +1,92 @@
+<section class="property-binding">
+  <article>
+    <h3>Interpolation / Interpolação</h3>
+    <p>String renderizada com intepolação: {{ url }}</p>
+    <p>Resultado de 1+1 = {{ 1 + 1 }}</p>
+    <p>Resultado de 1+1 não é = {{ 1 + 1 + getValor()}}</p>
+    <p>Curso de Angular / gosto do curso {{ cursoAngular && getCurtirCurso() }}</p>
+  </article>
+
+  <article>
+    <h3>Property Binding</h3>
+    <img src="{{ urlImage }}">
+    <img [src]="urlImage">
+  </article>
+  <br>
+  <br>
+
+  <article>
+    <h3>Class and Style Binding</h3>
+    Selecione uma classe:
+    <select #classe (change)="0">
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-info">Info</option>
+      <option value="alert-warning">Alerta</option>
+      <option value="alert-danger">Erro</option>
+    </select>
+    <br>
+    <br>
+    <div class="alert {{ classe.value }}" role="alert">
+      Texto colorido conforme valor no combobox.
+    </div>
+    <br>
+    <br>
+    <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">
+      Sucesso!
+    </div>
+    <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'">
+      Info!
+    </div>
+    <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">
+      Alerta!
+    </div>
+    <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'">
+      Erro!
+    </div>
+    <br>
+    <br>
+    <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+      Erro somente quando selecionado no combo!
+    </div>
+    <br>
+    <br>
+  </article>
+</section>
+
+<section class="event-binding">
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <button (click)="botaoClicado()" class="btn btn-primary">
+        Clique-me!
+      </button>
+      <br>
+      <br>
+      <input type="text" (keyup)="onKeyUp($event)" (blur)="salvarValor($event.target.value)" (keyup.enter)="salvarValor(campoInput.value)"
+        #campoInput />
+      <br>
+      <p>Valor Atual: {{ valorAtual }}</p>
+      <p>Valor Salvo: {{ valorSalvo }}</p>
+      <br>
+      <br>
+      <span (mouseover)="onMouseOverOut()" (mouseout)="onMouseOverOut()" [class.highlight]="isMouseOver">Passe o mouse!</span>
+      <br>
+      <br>
+    </div>
+  </article>
+</section>
+<br>
+<br>
+<app-meu-form></app-meu-form>
+
+<section class="input-output-properties">
+  <article>
+    <h3>Input/Output Propriedades</h3>
+    <app-curso [nome]="nomeDoCurso"></app-curso>
+
+    <contador [valor]="valorInicial"
+     (mudouValor)="onMudouValor($event)"
+    ></contador>  <!-- não é necessário colocar "[]" quando é declarado o valor diretamente -->
+  </article>
+</section>
+
