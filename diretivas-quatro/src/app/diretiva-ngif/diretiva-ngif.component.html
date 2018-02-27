@@ -6,3 +6,21 @@
 <div *ngIf="cursos.length == 0">
   Não existem cursos para serem listados...
 </div>
+<div *ngIf="mostrarCursos">
+  Lista de cursos aqui...
+</div>
+ <div *ngIf="!mostrarCursos"> <!-- negando o boolean -->
+  Não existem cursos para serem listados...
+</div>
+<br>
+<button (click)="onMostrarCursos()">Mostrar Cursos</button>
+
+<br>
+
+<h3>hidden como alternativ o if, pois tem melhor performance</h3>
+<div [hidden]="!mostrarCursos">
+  Lista de cursos aqui...
+</div>
+ <div [hidden]="mostrarCursos"> <!-- negando o boolean -->
+  Não existem cursos para serem listados...
+</div>

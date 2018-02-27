@@ -1,0 +1,29 @@
+
+
+  <div class="navbar-fixed">
+      <nav class="orange" role="navigation">
+          <div class="nav-wrapper container">
+              <a id="logo-container" href="#" class="brand-logo">
+                  <div class="logo center-block"></div>
+              </a>
+              <ul class="right hide-on-med-and-down">
+                  <li [class.active]="aba == 'home'" (click)="aba = 'home'"><a href="#">Home</a></li>
+                  <li [class.active]="aba == 'mapa'" (click)="aba = 'mapa'" ><a href="#">Mapa</a></li>
+                  <li [class.active]="aba == 'lista'"(click)="aba = 'lista'"><a href="#">Lista</a></li>
+              </ul>
+              <a href="#" materialize="sideNav" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          </div>
+      </nav>
+  </div>
+  <ul id="nav-mobile" class="side-nav">
+      <li [class.active]="aba == 'home'" (click)="aba = 'home'"><a href="#">Home</a></li>
+      <li [class.active]="aba == 'mapa'" (click)="aba = 'mapa'" ><a href="#">Mapa</a></li>
+      <li [class.active]="aba == 'lista'"(click)="aba = 'lista'"><a href="#">Lista</a></li>
+  </ul>
+
+  <div class="container" [ngSwitch]="aba">
+      <p *ngSwitchCase="'mapa'">Conteúdo mapa ativado</p>
+      <p *ngSwitchCase="'lista'">Conteúdo lista ativado</p>
+      <p *ngSwitchDefault>Voce está na Home</p> 
+    </div>
+
