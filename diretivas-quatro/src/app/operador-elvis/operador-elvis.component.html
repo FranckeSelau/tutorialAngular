@@ -1,0 +1,6 @@
+<h5>Operador Elvis</h5>
+
+<p>Descrição: {{ tarefa.desc }}</p>
+<!-- <p>Responsável {{ tarefa.responsavel.nome }}</p>  dá erro sempre que estiver nulo-->
+<!-- <p>Responsável {{ tarefa.responsavel != null ? tarefa.responsavel.nome : '' }}</p> forma longa -->
+<p>Responsável: {{ tarefa.responsavel?.usuario?.nome }}</p> <!-- maneir correta "?" elvis -->

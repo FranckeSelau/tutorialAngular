@@ -1,0 +1,29 @@
+  <h5>Slyles com property binding (style binding)</h5>
+  <button class="btn waves-effect waves-light"
+    [style.backgroundColor]="ativo ? 'blue' : 'orange'"
+    [style.color]="ativo ? 'white' : 'black'"
+    [style.fontWeight]="ativo ? 'bold' : 'normal'"
+    [style.fontSize]="tamanhoFonte + 'px'"
+    (click)= "mudarAtivo()"
+  >
+  Mudar atributo ativo
+  </button>
+  <br>
+  
+  <h5>Slyles com diretiva ngStyle</h5>
+  <button class="btn waves-effect waves-light"
+    [ngStyle]="{
+      'backgroundColor': ativo ? 'blue' : 'orange',
+      'color': ativo ? 'white' : 'black',
+      'fontWeight': ativo ? 'bold' : 'normal',
+      'fontSize': tamanhoFonte + 'px'  
+    }"
+    (click)= "mudarAtivo()"
+  >
+  Mudar atributo ativo
+  </button>
+  <br><br><br>
+  <div class="input-field" style="width: 120px">
+  <input type="text" [(ngModel)]="tamanhoFonte"><label>tamanho fonte</label> <!-- sempre que usar o ngModel importar "FormsModule" -->
+  </div>
+  <br>

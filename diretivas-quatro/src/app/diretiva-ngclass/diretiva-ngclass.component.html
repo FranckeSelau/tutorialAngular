@@ -1,0 +1,17 @@
+<h1>
+  <i class="material-icons"
+  [class.star_border]="!meuFavorito"
+  [class.star]="meuFavorito"
+  (click)="onClick()"
+  ></i>
+</h1>
+
+<h1>
+  <i class="material-icons"
+  [ngClass]="{
+    'star_border': !meuFavorito,
+    'star': meuFavorito
+  }"  
+  (click)="onClick()"
+  ></i>
+</h1>
